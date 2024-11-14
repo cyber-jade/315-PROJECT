@@ -13,7 +13,7 @@
     </h2>
         <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>" >
           
-      <input type="text" name="task-name" required placeholder="enter task"/>
+      <input type="text" name="taskname" required placeholder="enter task"/>
       <button type="submit" name="subadd">
         Add Task
       </button>
@@ -31,7 +31,7 @@ include 'db.php';
 
 if (isset($_POST['subadd'])) {
 
-    $task = $_POST["task-name"];
+    $task = $_POST["taskname"];
     
     $ins_sql = "INSERT INTO tasks (taskname)
     VALUES ('$task')";

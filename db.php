@@ -20,7 +20,7 @@ if ($conn->query($sql) === FALSE) {
 }
 $conn = $conn = new mysqli($servername, $username, $password, $dbname);
 $table_sql = "CREATE TABLE IF NOT EXISTS tasks (
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    id INT(15) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     taskname VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)";
 if ($conn->query($table_sql) === FALSE) {

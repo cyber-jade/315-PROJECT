@@ -1,16 +1,16 @@
----
-config:
-  theme: neutral
----
 erDiagram
+    %% All-white theme with black text
     direction LR
     classDef white fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px
-    users ||--o{ announcements : ""
-    users ||--o{ students : ""
-    users ||--o{ notifications : ""
-    students ||--o{ tuition_fees : ""
-    tuition_fees ||--o{ payments : ""
+
+    users ||--o{ students : "1:N"
+    users ||--o{ announcements : "1:N"
+    users ||--o{ notifications : "1:N"
+    students ||--o{ tuition_fees : "1:N"
+    tuition_fees ||--o{ payments : "1:N"
+
     class users,students,announcements,tuition_fees,payments,notifications white
+
     users {
         int id PK
         string username
@@ -18,6 +18,7 @@ erDiagram
         string role
         datetime created_at
     }
+
     students {
         int id PK
         int user_id FK
@@ -45,6 +46,7 @@ erDiagram
         string m_lname
         string m_contact
     }
+
     announcements {
         int id PK
         string title
@@ -53,6 +55,7 @@ erDiagram
         datetime created_at
         int posted_by FK
     }
+
     tuition_fees {
         int fee_id PK
         int student_id FK
@@ -61,6 +64,7 @@ erDiagram
         enum status
         datetime created_at
     }
+
     payments {
         int payment_id PK
         int fee_id FK
@@ -71,6 +75,7 @@ erDiagram
         string reference_no
         string remarks
     }
+
     notifications {
         int id PK
         int user_id FK
